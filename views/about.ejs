@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Mood Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  <a href="javascript:history.back()" class="back-button">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"
+        />
+      </svg>
+    </a>
+  <div class="container">
+    <h1 style="color:#ec4899;">About Mood Tracker</h1>
+
+    <!-- Top Two Boxes -->
+    <div class="section top-boxes">
+      <!-- Left Box -->
+      <div class="left-box">
+        <h2>✨ What This Website Can Do</h2>
+        <ul class="feature-list">
+          <li>Log your mood daily using emojis and notes.</li>
+          <li>Visualize emotions over time through beautiful graphs.</li>
+          <li>View monthly mood calendars with color-coded emotions.</li>
+          <li>Switch between light and dark themes.</li>
+          <li>Track progress and understand mood patterns easily.</li>
+        </ul>
+      </div>
+
+      <!-- Right Box: Slider -->
+      <div class="right-box">
+        <div class="slider-wrapper">
+          <div class="slider" id="imageSlider">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80" alt="Happy mood">
+            <img src="https://images.unsplash.com/photo-1617436631667-e91e26a700e2?auto=format&fit=crop&w=800&q=80" alt="Calm mood">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" alt="Thinking mood">
+            <img src="https://images.unsplash.com/photo-1541976076758-5f2c25b7f674?auto=format&fit=crop&w=800&q=80" alt="Stress mood">
+            <img src="https://images.unsplash.com/photo-1611095564980-703b6a5f9822?auto=format&fit=crop&w=800&q=80" alt="Motivated mood">
+          </div>
+        </div>
+        <div class="dots" id="dotsContainer"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Box -->
+    <div class="section bottom-box">
+      <h3>🌈 Why Mood Tracking Matters</h3>
+      <p>
+        Our moods change constantly — often without us realizing. Mood tracking helps you spot emotional patterns,
+        better understand what influences your mental well-being, and gives you control over how you respond to life.
+        <br><br>
+        It’s not just about tracking the bad days — it’s about celebrating the good ones too. 🎉
+        Whether you're navigating stress, building habits, or just learning about yourself, Mood Tracker is here for you.
+      </p>
+    </div>
+  </div>
+
+  <script src="about.js"></script>
+</body>
+</html>

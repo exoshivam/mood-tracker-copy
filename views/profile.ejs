@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile - Mood Tracker</title>
+  <link rel="stylesheet" href="/profile.css" />
+</head>
+<body>
+
+<a href="javascript:history.back()" class="back-button">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+  </svg>
+</a>
+
+<!-- Name Edit Modal -->
+<div class="modal-overlay" id="nameEditModal" style="display: none;">
+  <div class="modal-content">
+    <h3>Edit Your Name</h3>
+    <input type="text" class="modal-input" id="nameInput" placeholder="Enter your name" />
+    <div class="modal-actions">
+      <button class="cancel-btn" onclick="closeNameModal()">Cancel</button>
+      <button class="save-btn" onclick="saveName()">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Reset Modal -->
+<div class="modal-overlay" id="resetModal" style="display: none;">
+  <div class="modal-content">
+    <h3>Reset Profile</h3>
+    <p>Are you sure you want to reset your profile? This cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="cancel-btn" onclick="closeResetModal()">Cancel</button>
+      <button class="save-btn" onclick="confirmReset()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="profile-header">
+    <div class="avatar" id="avatar-container">
+      <div class="default-icon">👤</div>
+      <img id="profile-photo" src="" alt="Profile Photo" />
+    </div>
+    <div class="user-name" id="user-name-display" onclick="openNameModal()">User</div>
+    <div class="action-buttons">
+      <input type="file" id="photo-upload" style="display:none" accept="image/*" />
+      <button type="button" onclick="document.getElementById('photo-upload').click()">Change Photo</button>
+      <button type="button" onclick="openNameModal()">Edit Name</button>
+    </div>
+  </div>
+
+  <form id="profile-form" class="profile-form">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Enter your email" required />
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input id="dob" type="date" required />
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea id="bio" placeholder="Write something about yourself"></textarea>
+    </div>
+    <button type="submit" class="submit-button">Save Profile</button>
+  </form>
+
+  <form id="change-password-form" class="profile-form">
+    <div class="form-group">
+      <label for="old-password">Old Password</label>
+      <div class="password-container">
+        <input id="old-password" type="password" placeholder="Enter old password" />
+        <span class="toggle-password" onclick="togglePassword('old-password')">Show</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="new-password">New Password</label>
+      <div class="password-container">
+        <input id="new-password" type="password" placeholder="Enter new password" />
+        <span class="toggle-password" onclick="togglePassword('new-password')">Show</span>
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Change Password</button>
+  </form>
+
+  <div class="footer-buttons">
+    <button class="reset-button" onclick="openResetModal()">Reset Profile</button>
+    <p class="switch-page">Want to sign out? <a href="/logout">Logout</a></p>
+  </div>
+</div>
+
+<script src="/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mood Tracker</title>
+ <link rel="stylesheet" href="moodtracker.css">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <div class="logo">
+        <span class="logo-icon">🌼</span>
+        <span>Mood Tracker</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="/" class="nav-link">Home</a>
+      <a href="about" class="nav-link">About</a>
+      <a href="contact" class="nav-link">Contact</a>
+      <button class="account-button" onclick="location.href='profile'">My Account</button>
+    </nav>
+  </header>
+  <div class="container">
+    <div class="main-content">
+      <div class="mood-panel">
+        <h3>Daily Journal</h3>
+        <div id="date-info" class="date-info">No date selected</div>
+        <div id="current-mood" class="current-mood">
+          <div>Current mood:</div>
+          <span id="current-mood-display">-</span>
+          <div id="mood-label"></div>
+        </div>
+        <div class="mood-options" id="mood-options"></div>
+        <div class="journal-section">
+          <h4>Today's Notes</h4>
+          <textarea id="journal-text" class="journal-textarea" placeholder="Write your thoughts, feelings, or anything you want to remember about today..."></textarea>
+        </div>
+        <div class="mood-actions">
+          <button class="mood-button delete-button" id="delete-entry">Delete Entry</button>
+          <button class="mood-button save-button" id="save-entry">Save Entry</button>
+        </div>
+        <div id="no-date-selected" class="no-date-selected">
+          Click on a date in the calendar to select it
+        </div>
+      </div>
+      <div class="mood-stats">
+        <h3>Mood Tracker</h3>
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button class="calendar-nav prev">&#8592;</button>
+            <h4 id="calendar-month">Month Year</h4>
+            <button class="calendar-nav next">&#8594;</button>
+          </div>
+          <div class="calendar-grid">
+            <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mood-bar-container">
+      <div class="mood-label">Mood Distribution for the Month</div>
+      <div class="mood-bar-vertical" id="mood-bar-vertical"></div>
+    </div>
+    <div class="mood-insights-container">
+      <h3>Mood Insights</h3>
+      <div class="insights-top-row">
+        <div class="donut-chart-container">
+          <div class="donut-chart">
+            <div class="donut-center" id="donut-center">No data</div>
+          </div>
+          <div class="donut-legend" id="donut-legend"></div>
+        </div>
+      </div>
+      <div class="highs-lows-row">
+        <div class="highs-column">
+          <div class="high-low-header">
+            <span class="high-low-emoji">🌟</span>
+            <span>Happy Days</span>
+          </div>
+          <div class="highs-lows-content" id="highs-content">
+            <div class="no-entries-message">No happy days recorded this month</div>
+          </div>
+        </div>
+        <div class="lows-column">
+          <div class="high-low-header">
+            <span class="high-low-emoji">🌧️</span>
+            <span>Difficult Days</span>
+          </div>
+          <div class="highs-lows-content" id="lows-content">
+            <div class="no-entries-message">No difficult days recorded this month</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="month-journal-container">
+      <h3>Journal Entries for <span id="current-month-name"></span></h3>
+      <div class="month-journal-entries" id="month-journal-entries">
+        <div class="no-entries-message">No journal entries for this month yet</div>
+      </div>
+    </div>
+    <button id="delete-month" class="delete-month-button">Delete All Entries for This Month</button>
+  </div>
+  <script src="moodtracker.js"></script>
+</body>
+</html>
