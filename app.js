@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -12,7 +14,7 @@ const verifyUser = require("./middlewares/auth");
 
 // Database
 mongoose
-  .connect("mongodb://127.0.0.1:27017/authtestapp", {
+  .connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -37,7 +39,7 @@ app.post("/create", async (req, res) => {
   const { username, email, password } = req.body;
   const hash = await bcrypt.hash(password, 10);
   const user = await userModel.create({ username, email, password: hash });
-  const token = jwt.sign({ email: user.email }, "shivam");
+  const token = jwt.sign({ email: user.email }, process.env.JWT_SECRET);
   res.cookie("token", token);
   res.redirect("/afterLogin");
 });
@@ -123,7 +125,7 @@ app.post("/change-password", verifyUser, async (req, res) => {
 });
 
 // Server
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () =>
   console.log(`Server running at http://localhost:${PORT}`)
 );
