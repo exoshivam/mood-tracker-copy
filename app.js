@@ -66,6 +66,17 @@ app.get("/logout", (req, res) => {
 app.get("/afterLogin", verifyUser, (req, res) => res.render("moodtracker"));
 app.post("/save-mood", verifyUser, async (req, res) => {
   const { date, mood, journal } = req.body;
+
+  const hasMood = mood && mood.trim() !== "";
+  const hasJournal = journal && journal.trim() !== "";
+
+  // If neither mood nor journal — delete entry if exists
+  if (!hasMood && !hasJournal) {
+    await moodModel.deleteOne({ userId: req.user._id, date });
+    return res.json({ success: true, deleted: true });
+  }
+
+  // Otherwise: create or update
   let entry = await moodModel.findOne({ userId: req.user._id, date });
 
   if (entry) {
@@ -78,6 +89,7 @@ app.post("/save-mood", verifyUser, async (req, res) => {
 
   res.json({ success: true });
 });
+
 app.get("/get-moods", verifyUser, async (req, res) => {
   const moods = await moodModel.find({ userId: req.user._id });
   res.json(moods);
